@@ -10,12 +10,12 @@ $ARGUMENTS
 
 ## Goal
 
-Obtain a step-by-step plan for a Jira ticket that is ready to start implementing.
+Obtain a step-by-step plan for a Trello ticket that is ready to start implementing.
 
 ## Process and Rules
 
 1. Adopt the role of `.claude/agents/backend-developer.md`
-2. Analyze the Jira ticket mentioned in ##ticket using the MCP. If the mention is a local file, then avoid using MCP
+2. Analyze the Trello ticket mentioned in ##ticket using the MCP. If the mention is a local file, then avoid using MCP
 3. Propose a step-by-step plan for the backend part, taking into account everything mentioned in the ticket and applying the project's best practices and rules you can find in `/ai-specs/specs`
 4. Apply the best practices of your role to ensure the developer can be fully autonomous and implement the ticket end-to-end using only your plan
 5. Do not write code yet; provide only the plan in the output format defined below
@@ -23,7 +23,7 @@ Obtain a step-by-step plan for a Jira ticket that is ready to start implementing
 
 ## Output Format
 
-Markdown document at the path `ai-specs/changes/[jira_id]_backend.md` containing the complete implementation details.
+Markdown document at the path `ai-specs/changes/[Trello_id]_backend.md` containing the complete implementation details.
 
 ### Backend Implementation Plan Template Structure
 
