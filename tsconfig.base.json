@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/data/*": ["data/*"],
+      "@/components/*": [
+        "src/app/modules/shared/presentation/libs/shadcn/components/*"
+      ],
+      "@/hooks/*": ["src/app/modules/shared/presentation/libs/shadcn/hooks/*"],
+      "@/lib/*": ["src/app/modules/shared/presentation/libs/shadcn/lib/*"],
+      "@/utils/*": [
+        "src/app/modules/shared/presentation/libs/shadcn/lib/utils/*"
+      ],
+      "@/modules/*": ["src/app/modules/*"],
+      "@/variables/*": ["src/app/variables/*"],
+      "@/*": ["src/*"]
+    },
+    "types": ["vitest/globals", "node"]
+  }
+}
