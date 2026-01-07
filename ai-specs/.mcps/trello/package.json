@@ -1,0 +1,45 @@
+{
+  "name": "@ai-specs/trello-cli",
+  "version": "1.0.0",
+  "description": "CLI tool for enriching Trello user stories and managing cards",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "trello-cli": "./dist/cli.js",
+    "mcp-trello": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/cli.js",
+    "start:mcp": "node dist/index.js",
+    "install-global": "npm run build && npm link",
+    "cli": "npm run build && node dist/cli.js",
+    "boards": "npm run build && node dist/cli.js get-boards",
+    "lists": "npm run build && node dist/cli.js get-lists",
+    "search": "npm run build && node dist/cli.js search",
+    "enrich": "npm run build && node dist/cli.js enrich-us",
+    "create": "npm run build && node dist/cli.js create-card"
+  },
+  "keywords": [
+    "trello",
+    "cli",
+    "user-stories",
+    "mcp",
+    "model-context-protocol",
+    "ddd",
+    "domain-driven-design"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "axios": "^1.6.5",
+    "commander": "^12.0.0",
+    "dotenv": "^16.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "typescript": "^5.3.3"
+  }
+}
