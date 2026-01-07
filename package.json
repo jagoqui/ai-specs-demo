@@ -1,13 +1,62 @@
 {
   "name": "ai-specs-demo",
+  "homepage": "https://ai-specs-demo.netlify.app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "A demo application for showcasing AI agents usage, built with React and Vite, following clean code best practices and hexagonal architecture.",
+  "author": {
+    "name": "Jaidiver Gómez Quintero",
+    "email": "jagoqui.gomez@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "Jaidiver Gómez Quintero",
+      "email": "jagoqui.gomez@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jagoqui/ai-specs-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jagoqui/ai-specs-demo/issues"
+  },
+  "keywords": [
+    "react",
+    "vite",
+    "typescript",
+    "tailwindcss",
+    "real-estate",
+    "clean-code",
+    "hexagonal-architecture",
+    "ai-specs",
+    "tanstack"
+  ],
   "scripts": {
     "dev": "vite",
+    "staging": "vite --mode staging",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "check-types": "tsc --noemit",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:staged": "vitest --changed --run",
+    "test:watch": "vitest",
+    "test:single": "node scripts/vitest-single-coverage.js",
+    "lint": "eslint src --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --report-unused-disable-directives --fix --max-warnings 0",
+    "format": "prettier --write src --ignore-unknown",
+    "markdownlint": "markdownlint-cli2 --fix 'README.md' 'ai-specs/**/*.{md,mdc}' 'documentation/**/*.md'",
+    "sonar-scanner:local": "docker rm -f sonar-scanner-cli; node ./scripts/sonar-scanner.js -local",
+    "sonarqube:image:build": "docker rm -f sonarqube; docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest",
+    "sonarqube:image:start": "docker start sonarqube",
+    "sonarqube:image:stop": "docker stop sonarqube",
+    "snyk:auth": "npx snyk auth",
+    "snyk:dependencies": "node --env-file=environments/.env ./scripts/snyk.js",
+    "snyk:static": "node --env-file=environments/.env ./scripts/snyk.js -static",
+    "snyk:monitor": "node --env-file=environments/.env ./scripts/snyk.js -monitor",
+    "snyk:runner": "npm run snyk:static; npm run snyk:dependencies; npm run snyk:monitor",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^19.2.0",
