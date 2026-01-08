@@ -1,3 +1,3 @@
 export const HomeLayout = (): React.ReactElement => {
-  return <>Home</>;
+  return <h1>Home</h1>;
 };

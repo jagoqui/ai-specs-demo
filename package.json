@@ -43,6 +43,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:report": "playwright show-report",
     "test:staged": "vitest --changed --run",
     "test:single": "node scripts/vitest-single-coverage.js",
     "lint": "eslint src --no-warn-ignored --report-unused-disable-directives --max-warnings 0",
@@ -88,6 +91,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.57.0",
     "@react-scan/vite-plugin-react-scan": "^0.1.8",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.1",
