@@ -1,4 +1,4 @@
 {
-  "./src/**/*.ts*": ["npm run lint", "npm run format", "npm run test:staged"],
+  "./src/**/!(*.spec).ts*": ["npm run lint", "npm run format", "npm run test:staged"],
   "./documentation/**/*.md": ["npm run markdownlint"]
 }
