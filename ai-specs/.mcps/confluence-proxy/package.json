@@ -1,0 +1,29 @@
+{
+  "name": "confluence-vpn-proxy-mcp",
+  "version": "1.0.0",
+  "description": "MCP server to access Confluence through local VPN",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "confluence",
+    "vpn",
+    "proxy"
+  ],
+  "author": "Jaidiver Gomez",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "axios": "^1.7.9",
+    "marked": "^12.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}
