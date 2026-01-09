@@ -204,9 +204,37 @@ trello-cli get-lists <boardId>
 trello-cli move-card abc12345 <validationListId>
 ```
 
-## MCP Server (Claude Desktop)
+## MCP Server Configuration
 
-If you're using Claude Desktop or Cursor, you can also use this as an MCP server.
+You can use this tool as an MCP (Model Context Protocol) server with various AI assistants.
+
+### VS Code (GitHub Copilot)
+
+Add this configuration to your VS Code MCP config file:
+
+**Location:** `.vscode/mcp.json` (in your project root)
+
+```json
+{
+  "servers": {
+    "trello-mcp": {
+      "command": "node",
+      "args": [
+        "C:/Users/User/Desktop/ai-specs-demo/ai-specs/.mcps/trello/dist/index.js"
+      ],
+      "env": {
+        "TRELLO_API_KEY": "your-api-key-here",
+        "TRELLO_TOKEN": "your-token-here",
+        "TRELLO_DEFAULT_BOARD_ID": "your-board-id" 
+      }
+    }
+  }
+}
+```
+
+**Optional:** `TRELLO_DEFAULT_BOARD_ID` can be set to avoid specifying board ID in commands.
+
+### Claude Desktop
 
 Add this configuration to your Claude Desktop config file:
 
@@ -231,7 +259,10 @@ Add this configuration to your Claude Desktop config file:
 }
 ```
 
-**Important:** Replace the path with your actual project path.
+**Important Notes:**
+- Replace the path with your actual project path
+- Use forward slashes (`/`) for VS Code, backslashes (`\\`) for Claude Desktop on Windows
+- Restart your editor/application after updating the config
 
 ## MCP Available Tools
 
