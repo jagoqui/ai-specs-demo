@@ -547,30 +547,29 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           parentId?: string;
         };
 
-        // Get space ID from space key using v1 API
-        const spaceResponse = await confluenceApi.get(`/space/${spaceKey}`);
-        const spaceId = spaceResponse.data.id;
+        // Convert markdown to HTML using marked library
+        const htmlContent = marked.parse(content) as string;
 
-        // Convert markdown to ADF (Atlassian Document Format)
-        const adfContent = markdownToADF(content);
-
-        // Use API v2 for creating pages with Fabric editor (ADF format)
         const pageData: any = {
-          spaceId: spaceId,
-          status: "current",
+          type: "page",
           title,
+          space: {
+            key: spaceKey,
+          },
           body: {
-            representation: "atlas_doc_format",
-            value: adfContent, // v2 accepts ADF object directly, not stringified
+            storage: {
+              value: htmlContent,
+              representation: "storage",
+            },
           },
         };
 
         // Add parent if provided
         if (parentId) {
-          pageData.parentId = parentId;
+          pageData.ancestors = [{ id: parentId }];
         }
 
-        const response = await confluenceApiV2.post("/pages", pageData);
+        const response = await confluenceApi.post("/content", pageData);
 
         return {
           content: [
